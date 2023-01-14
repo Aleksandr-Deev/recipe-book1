@@ -4,6 +4,7 @@ import com.example.recipebook1.model.Recipe;
 import com.example.recipebook1.service.RecipeService;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +30,10 @@ public class RecipeServiceImpl implements RecipeService {
         } else {
             throw new RuntimeException("Рецепт не найден");
         }
+    }
+
+    public Collection<Recipe> getAllRecipes() {
+        return recipes.values();
     }
 
     public Recipe updateRecipe(long id, Recipe recipe) {

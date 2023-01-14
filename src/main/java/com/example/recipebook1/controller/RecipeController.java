@@ -5,6 +5,8 @@ import com.example.recipebook1.model.Recipe;
 import com.example.recipebook1.service.impl.RecipeServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+
 @RestController
 @RequestMapping("/recipe")
 public class RecipeController {
@@ -13,6 +15,11 @@ public class RecipeController {
 
     public RecipeController(RecipeServiceImpl recipeService) {
         this.recipeService = recipeService;
+    }
+
+    @GetMapping
+    public Collection<Recipe> getAllRecipe() {
+        return this.recipeService.getAllRecipes();
     }
 
     @GetMapping("/{id}")
